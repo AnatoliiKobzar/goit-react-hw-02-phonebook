@@ -23,7 +23,11 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const Button = styled.button`
-  padding: 8px 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 40px;
+  padding: 0px 16px;
   margin: 0;
   min-width: 92px;
   font-weight: 600;

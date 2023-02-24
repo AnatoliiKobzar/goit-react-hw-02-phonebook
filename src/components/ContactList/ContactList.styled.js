@@ -9,10 +9,14 @@ export const ContactsList = styled.ul`
 export const Contact = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Info = styled.p`
-  font-size: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 18px;
   font-weight: 600;
 `;
 

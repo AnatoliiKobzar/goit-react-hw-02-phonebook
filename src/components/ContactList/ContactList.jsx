@@ -2,6 +2,7 @@ import { Button } from 'components/ContactForm/ContactForm.styled';
 import React from 'react';
 import { Contact, Info, Wrap, ContactsList } from './ContactList.styled';
 import PropTypes from 'prop-types';
+import { SlUserUnfollow, SlCallEnd, SlSocialGithub } from 'react-icons/sl';
 
 export const ContactList = ({ contacts, onDelete }) => {
   return (
@@ -9,8 +10,14 @@ export const ContactList = ({ contacts, onDelete }) => {
       {contacts.map(contact => (
         <Contact key={contact.id}>
           <Wrap>
-            <Info>{contact.name}:</Info>
-            <Info>{contact.number}</Info>
+            <Info>
+              <SlSocialGithub size="18px" />
+              {contact.name}:
+            </Info>
+            <Info>
+              <SlCallEnd size="18px" />
+              {contact.number}
+            </Info>
           </Wrap>
           <Button
             type="button"
@@ -18,6 +25,7 @@ export const ContactList = ({ contacts, onDelete }) => {
               onDelete(contact.id);
             }}
           >
+            <SlUserUnfollow size="18px" />
             Delete
           </Button>
         </Contact>

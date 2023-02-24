@@ -4,6 +4,7 @@ import { Button, ErrorMessage, Form, FormField } from './ContactForm.styled';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import { SlUserFollow } from 'react-icons/sl';
 
 const phoneRegExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){3,14}(\s*)?$/;
 
@@ -42,7 +43,10 @@ export const ContactForm = ({ onSave }) => {
           <Field name="number" type="text" autoComplete="off" />
           <ErrorMessage name="number" component="div" />
         </FormField>
-        <Button type="submit">Add connact</Button>
+        <Button type="submit">
+          <SlUserFollow size="18px" />
+          Add connact
+        </Button>
       </Form>
     </Formik>
   );
