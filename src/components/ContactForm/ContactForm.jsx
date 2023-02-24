@@ -3,6 +3,7 @@ import { Formik, Field } from 'formik';
 import { Button, ErrorMessage, Form, FormField } from './ContactForm.styled';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 const phoneRegExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){3,14}(\s*)?$/;
 
@@ -46,3 +47,5 @@ export const ContactForm = ({ onSave }) => {
     </Formik>
   );
 };
+
+ContactForm.propTypes = { onSave: PropTypes.func.isRequired };

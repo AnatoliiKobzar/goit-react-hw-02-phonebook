@@ -1,6 +1,7 @@
 import { Button } from 'components/ContactForm/ContactForm.styled';
 import React from 'react';
 import { Contact, Info, Wrap, ContactsList } from './ContactList.styled';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, onDelete }) => {
   return (
@@ -23,4 +24,15 @@ export const ContactList = ({ contacts, onDelete }) => {
       ))}
     </ContactsList>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };

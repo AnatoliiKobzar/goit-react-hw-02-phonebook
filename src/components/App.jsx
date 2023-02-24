@@ -18,7 +18,13 @@ class App extends Component {
   };
 
   addContact = newContact => {
-    if (this.state.contacts.find(contact => contact.name === newContact.name)) {
+    const { contacts } = this.state;
+
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
       return Report.warning(
         'Warning',
         'The contact to that name already exists!',
@@ -46,22 +52,26 @@ class App extends Component {
   };
 
   getFiltredContacts = () => {
-    const normalizedContacts = this.state.filter.toLowerCase();
+    const { contacts, filter } = this.state;
 
-    return this.state.contacts.filter(contact =>
+    const normalizedContacts = filter.toLowerCase();
+
+    return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedContacts)
     );
   };
 
   render() {
+    const { filter } = this.state;
     const filteredContacts = this.getFiltredContacts();
+    console.log(filteredContacts);
 
     return (
       <Layout>
         <h1>Phonebook</h1>
         <ContactForm onSave={this.addContact} />
         <h2>Contacts</h2>
-        <Filter onChange={this.chengeFilter} value={this.state.filter} />
+        <Filter onChange={this.chengeFilter} value={filter} />
         <ContactList
           contacts={filteredContacts}
           onDelete={this.deleteContact}
