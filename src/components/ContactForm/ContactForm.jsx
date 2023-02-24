@@ -45,7 +45,7 @@ export const ContactForm = ({ onSave }) => {
         </FormField>
         <Button type="submit">
           <SlUserFollow size="18px" />
-          Add connact
+          Add contact
         </Button>
       </Form>
     </Formik>
