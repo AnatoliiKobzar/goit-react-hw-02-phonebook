@@ -27,9 +27,9 @@ export const Button = styled.button`
   gap: 8px;
   align-items: center;
   height: 40px;
-  padding: 0px 16px;
+  padding: 0px 9px;
   margin: 0;
-  min-width: 92px;
+  /* min-width: 92px; */
   font-weight: 600;
   font-size: 16px;
   line-height: calc(24 / 16);

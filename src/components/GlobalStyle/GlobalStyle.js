@@ -31,4 +31,7 @@ img {
 p {
     margin: 0;
 }
+input{
+    height: 23px;
+}
 `;

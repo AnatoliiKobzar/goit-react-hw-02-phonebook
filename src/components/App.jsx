@@ -47,6 +47,18 @@ class App extends Component {
     });
   };
 
+  editContact = updatedContact => {
+    this.setState(({ contacts }) => ({
+      contacts: contacts.map(contact => {
+        if (contact.id === updatedContact.id) {
+          const newContact = { ...contact, ...updatedContact };
+          return newContact;
+        }
+        return contact;
+      }),
+    }));
+  };
+
   chengeFilter = event => {
     this.setState({ filter: event.currentTarget.value });
   };
@@ -64,7 +76,6 @@ class App extends Component {
   render() {
     const { filter } = this.state;
     const filteredContacts = this.getFiltredContacts();
-    console.log(filteredContacts);
 
     return (
       <Layout>
@@ -75,6 +86,7 @@ class App extends Component {
         <ContactList
           contacts={filteredContacts}
           onDelete={this.deleteContact}
+          editContact={this.editContact}
         />
         <GlobalStyle />
       </Layout>

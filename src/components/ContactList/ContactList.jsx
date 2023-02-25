@@ -1,35 +1,21 @@
-import { Button } from 'components/ContactForm/ContactForm.styled';
 import React from 'react';
-import { Contact, Info, Wrap, ContactsList } from './ContactList.styled';
+import { ContactsList } from './ContactList.styled';
 import PropTypes from 'prop-types';
-import { SlUserUnfollow, SlCallEnd, SlSocialGithub } from 'react-icons/sl';
+import { ContactListItem } from './ContactListItem';
 
-export const ContactList = ({ contacts, onDelete }) => {
+export const ContactList = ({ contacts, onDelete, editContact }) => {
   return (
     <ContactsList>
-      {contacts.map(contact => (
-        <Contact key={contact.id}>
-          <Wrap>
-            <Info>
-              <SlSocialGithub size="18px" />
-              {contact.name}:
-            </Info>
-            <Info>
-              <SlCallEnd size="18px" />
-              {contact.number}
-            </Info>
-          </Wrap>
-          <Button
-            type="button"
-            onClick={() => {
-              onDelete(contact.id);
-            }}
-          >
-            <SlUserUnfollow size="18px" />
-            Delete
-          </Button>
-        </Contact>
-      ))}
+      {contacts.map(contact => {
+        return (
+          <ContactListItem
+            key={contact.id}
+            contact={contact}
+            onDelete={onDelete}
+            editContact={editContact}
+          />
+        );
+      })}
     </ContactsList>
   );
 };
@@ -43,4 +29,5 @@ ContactList.propTypes = {
     }).isRequired
   ).isRequired,
   onDelete: PropTypes.func.isRequired,
+  editContact: PropTypes.func.isRequired,
 };
